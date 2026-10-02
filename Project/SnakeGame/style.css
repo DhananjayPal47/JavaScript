@@ -81,5 +81,13 @@ section .infos {
 .board {
   border: 1px solid var(--border-primary-color);
   flex-grow: 1;
-  border-radius: var(--border_radius-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+}
+
+.block {
+  height: 30px;
+  width: 30px;
+  border: 1px solid var(--border-primary-color);
 }
