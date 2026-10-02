@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript DOM Learning</title>
+  </head>
+
+  <body>
+    <h1 id="title">My Task List</h1>
+
+    <input id="taskInput" type="text" placeholder="Enter a task" />
+
+    <button id="addBtn">Add Task</button>
+
+    <ul id="taskList">
+      <li>Learn JavaScript</li>
+      <li>Learn DOM</li>
+    </ul>
+
+    <script>
+      // document represents the HTML document/page.
+      //
+      // querySelector() finds the FIRST element
+      // matching the CSS selector.
+      //
+      // "#title" means:
+      // Find the element whose id is "title".
+
+      const title = document.querySelector("#title");
+
+      // Select the input element
+      const taskInput = document.querySelector("#taskInput");
+
+      // Select the button
+      const addBtn = document.querySelector("#addBtn");
+
+      // Select the <ul>
+      const taskList = document.querySelector("#taskList");
+
+      // textContent gives us the text inside an element.
+
+      console.log(title.textContent);
+
+      // Output:
+      // My Task List
+
+      // For an input, we normally use .value
+      // because the text entered by the user is stored in value.
+
+      console.log(taskInput.value);
+
+      title.textContent = "My JavaScript Tasks";
+
+      // The browser immediately changes:
+      //
+      // My Task List
+      //
+      // into:
+      //
+      // My JavaScript Tasks
+
+      // =========================================================
+      // 4. CHANGING INPUT VALUE
+      // =========================================================
+
+      // value is a property of an input element.
+
+      taskInput.value = "Learn DOM";
+
+      // Now the input box contains:
+      //
+      // Learn DOM
+
+      // =========================================================
+      // 5. CHANGING CSS USING classList
+      // =========================================================
+
+      // classList allows us to add/remove/toggle CSS classes.
+
+      title.classList.add("heading");
+
+      // We can also remove a class:
+      //
+      // title.classList.remove("heading");
+
+      // Or toggle a class:
+      //
+      // title.classList.toggle("heading");
+
+      // =========================================================
+      // 6. READING ATTRIBUTES
+      // =========================================================
+
+      // getAttribute() reads an HTML attribute.
+
+      console.log(taskInput.getAttribute("placeholder"));
+
+      // Output:
+      // Enter a task
+
+      // =========================================================
+      // 7. CHANGING ATTRIBUTES
+      // =========================================================
+
+      // setAttribute() changes/adds an attribute.
+
+      taskInput.setAttribute("placeholder", "Type your task here");
+
+      // The placeholder now becomes:
+      //
+      // Type your task here
+
+      // =========================================================
+      // 8. CREATING A NEW ELEMENT
+      // =========================================================
+
+      // createElement() creates an element in JavaScript.
+
+      const newTask = document.createElement("li");
+
+      // IMPORTANT:
+      //
+      // createElement() DOES NOT put the element
+      // on the webpage yet.
+      //
+      // It only creates the element in memory.
+
+      // =========================================================
+      // 9. ADDING CONTENT TO THE NEW ELEMENT
+      // =========================================================
+
+      newTask.textContent = "Learn JavaScript DOM";
+
+      // =========================================================
+      // 10. ADDING THE ELEMENT TO THE PAGE
+      // =========================================================
+
+      // append() adds the element inside taskList.
+
+      taskList.append(newTask);
+
+      // Now the page contains:
+      //
+      // Learn JavaScript
+      // Learn DOM
+      // Learn JavaScript DOM
+
+      // =========================================================
+      // 11. SELECTING MULTIPLE ELEMENTS
+      // =========================================================
+
+      // querySelector() -> first matching element
+      //
+      // querySelectorAll() -> ALL matching elements
+
+      const tasks = document.querySelectorAll("#taskList li");
+
+      console.log(tasks);
+
+      // This gives us a NodeList containing
+      // all <li> elements.
+
+      // =========================================================
+      // 12. ITERATING THROUGH ELEMENTS
+      // =========================================================
+
+      // forEach() allows us to process each element
+      // one by one.
+
+      tasks.forEach(function (task) {
+        console.log(task.textContent);
+      });
+
+      // Output:
+      //
+      // Learn JavaScript
+      // Learn DOM
+      // Learn JavaScript DOM
+
+      // =========================================================
+      // 13. REMOVING AN ELEMENT
+      // =========================================================
+
+      // We can remove an element using .remove()
+
+      // newTask.remove();
+
+      // If we uncomment the above line,
+      // "Learn JavaScript DOM" will disappear.
+
+      // =========================================================
+      // 14. EVENT
+      // =========================================================
+
+      // addEventListener() allows JavaScript
+      // to react to user actions.
+
+      addBtn.addEventListener("click", function () {
+        // This function runs whenever
+        // the button is clicked.
+
+        console.log("Button clicked!");
+      });
+    </script>
+  </body>
+</html>
